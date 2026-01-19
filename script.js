@@ -11,26 +11,6 @@ if (mobileMenuBtn) {
         closeIcon.classList.toggle('hidden');
     });
 }
-<script>
-  const MAIN_SITE_URL = "https://yourwebsite.com"; // change this
-  const EXIT_URL = "https://www.google.com";
-
-  function acceptAge() {
-    localStorage.setItem("ageVerified", "true");
-    window.location.href = MAIN_SITE_URL;
-  }
-
-  function declineAge() {
-    window.location.href = EXIT_URL;
-  }
-
-  // Check if already verified
-  window.onload = function () {
-    if (localStorage.getItem("ageVerified") === "true") {
-      document.getElementById("ageModal").style.display = "none";
-    }
-  };
-</script>
 
 // Hero Slider
 const slides = document.querySelectorAll('.slide');
@@ -226,4 +206,33 @@ navLinks.forEach(link => {
     if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
         link.classList.add('active');
     }
+});
+
+/* ===============================
+   AGE VERIFICATION LOGIC
+================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ageModal = document.getElementById("ageModal");
+    const ageYes = document.getElementById("ageYes");
+    const ageNo = document.getElementById("ageNo");
+
+    if (!ageModal) return;
+
+    // If already verified, hide popup
+    if (localStorage.getItem("ageVerified") === "true") {
+        ageModal.style.display = "none";
+        return;
+    }
+
+    ageYes.addEventListener("click", () => {
+        localStorage.setItem("ageVerified", "true");
+        ageModal.style.display = "none";
+        // OR redirect if you want:
+        // window.location.href = "index.html";
+    });
+
+    ageNo.addEventListener("click", () => {
+        window.location.href = "https://www.google.com";
+    });
 });
