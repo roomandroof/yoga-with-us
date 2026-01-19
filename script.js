@@ -209,7 +209,7 @@ navLinks.forEach(link => {
 });
 
 /* ===============================
-   AGE VERIFICATION LOGIC
+   AGE VERIFICATION (ALWAYS SHOW)
 ================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -219,17 +219,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!ageModal) return;
 
-    // If already verified, hide popup
-    if (localStorage.getItem("ageVerified") === "true") {
-        ageModal.style.display = "none";
-        return;
-    }
+    // ALWAYS show popup on page load
+    ageModal.style.display = "flex";
 
     ageYes.addEventListener("click", () => {
-        localStorage.setItem("ageVerified", "true");
-        ageModal.style.display = "none";
-        // OR redirect if you want:
-        // window.location.href = "index.html";
+        window.location.href = "https://your-main-website.com";
     });
 
     ageNo.addEventListener("click", () => {
