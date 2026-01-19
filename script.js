@@ -219,14 +219,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!ageModal) return;
 
-    // ALWAYS show popup on page load
+    /* ===============================
+   AGE VERIFICATION (ALWAYS SHOW)
+================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ageModal = document.getElementById("ageModal");
+    const ageYes = document.getElementById("ageYes");
+    const ageNo = document.getElementById("ageNo");
+
+    if (!ageModal) return;
+
+    // Always show popup on load
     ageModal.style.display = "flex";
 
+    // YES → close popup first, then redirect
     ageYes.addEventListener("click", () => {
-        window.location.href = "https://yoga-with-age-vigio.ondigitalocean.app/";
+        ageModal.style.display = "none";
+
+        // Small delay so UI updates before redirect
+        setTimeout(() => {
+            window.location.href = "https://your-main-website.com";
+        }, 100);
     });
 
+    // NO → redirect to Google
     ageNo.addEventListener("click", () => {
         window.location.href = "https://www.google.com";
     });
 });
+
