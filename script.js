@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ageModal.style.display = "flex";
 
     ageYes.addEventListener("click", () => {
-        window.location.href = "https://your-main-website.com";
+        window.location.href = "https://yoga-with-age-vigio.ondigitalocean.app/";
     });
 
     ageNo.addEventListener("click", () => {
