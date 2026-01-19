@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Small delay so UI updates before redirect
         setTimeout(() => {
-            window.location.href = "facebook.com";
+            window.location.href = "https://play-solitiare-2-f7dqg.ondigitalocean.app/";
         }, 100);
     });
 
