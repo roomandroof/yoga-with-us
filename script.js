@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Small delay so UI updates before redirect
         setTimeout(() => {
-            window.location.href = "https://your-main-website.com";
+            window.location.href = "facebook.com";
         }, 100);
     });
 
