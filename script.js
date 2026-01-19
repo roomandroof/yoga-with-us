@@ -11,6 +11,26 @@ if (mobileMenuBtn) {
         closeIcon.classList.toggle('hidden');
     });
 }
+<script>
+  const MAIN_SITE_URL = "https://yourwebsite.com"; // change this
+  const EXIT_URL = "https://www.google.com";
+
+  function acceptAge() {
+    localStorage.setItem("ageVerified", "true");
+    window.location.href = MAIN_SITE_URL;
+  }
+
+  function declineAge() {
+    window.location.href = EXIT_URL;
+  }
+
+  // Check if already verified
+  window.onload = function () {
+    if (localStorage.getItem("ageVerified") === "true") {
+      document.getElementById("ageModal").style.display = "none";
+    }
+  };
+</script>
 
 // Hero Slider
 const slides = document.querySelectorAll('.slide');
