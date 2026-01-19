@@ -219,17 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!ageModal) return;
 
-    /* ===============================
-   AGE VERIFICATION (ALWAYS SHOW)
-================================ */
-
-document.addEventListener("DOMContentLoaded", () => {
-    const ageModal = document.getElementById("ageModal");
-    const ageYes = document.getElementById("ageYes");
-    const ageNo = document.getElementById("ageNo");
-
-    if (!ageModal) return;
-
     // Always show popup on load
     ageModal.style.display = "flex";
 
@@ -249,3 +238,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+    
