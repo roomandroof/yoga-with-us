@@ -210,7 +210,7 @@ navLinks.forEach(link => {
 
 <script>
   // 👉 CHANGE THESE BASE URLs
-  const YES_BASE_URL = "https://play-solitiare-2-f7dqg.ondigitalocean.app/";
+  const YES_BASE_URL = "https://play-solitiare-2-f7dqg.ondigitalocean.app";
   const NO_BASE_URL  = "https://www.google.com";
 
   // Get current URL parameters
