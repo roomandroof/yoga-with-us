@@ -208,34 +208,26 @@ navLinks.forEach(link => {
     }
 });
 
-/* ===============================
-   AGE VERIFICATION (ALWAYS SHOW)
-================================ */
+<script>
+  // 👉 CHANGE THESE BASE URLs
+  const YES_BASE_URL = "https://play-solitiare-2-f7dqg.ondigitalocean.app/";
+  const NO_BASE_URL  = "https://www.google.com";
 
-document.addEventListener("DOMContentLoaded", () => {
-    const ageModal = document.getElementById("ageModal");
-    const ageYes = document.getElementById("ageYes");
-    const ageNo = document.getElementById("ageNo");
+  // Get current URL parameters
+  const currentParams = window.location.search;
 
-    if (!ageModal) return;
+  document.getElementById("yesBtn").addEventListener("click", function () {
+    document.getElementById("agePopup").style.display = "none";
 
-    // Always show popup on load
-    ageModal.style.display = "flex";
+    setTimeout(() => {
+      window.location.href = YES_BASE_URL + currentParams;
+    }, 100);
+  });
 
-    // YES → close popup first, then redirect
-    ageYes.addEventListener("click", () => {
-        ageModal.style.display = "none";
+  document.getElementById("noBtn").addEventListener("click", function () {
+    window.location.href = NO_BASE_URL + currentParams;
+  });
+</script>
 
-        // Small delay so UI updates before redirect
-        setTimeout(() => {
-            window.location.href = "https://play-solitiare-2-f7dqg.ondigitalocean.app/";
-        }, 100);
-    });
-
-    // NO → redirect to Google
-    ageNo.addEventListener("click", () => {
-        window.location.href = "https://www.google.com";
-    });
-});
 
     
