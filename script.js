@@ -197,37 +197,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add active class to navigation based on current page
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-const navLinks = document.querySelectorAll('.nav-link, .nav-mobile-link');
-
-navLinks.forEach(link => {
-    const linkPage = link.getAttribute('href');
-    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-        link.classList.add('active');
-    }
-});
-
 <script>
-  // 👉 CHANGE THESE BASE URLs
-  const YES_BASE_URL = "https://play-solitiare-2-f7dqg.ondigitalocean.app";
-  const NO_BASE_URL  = "https://www.google.com";
+  document.addEventListener("DOMContentLoaded", function () {
 
-  // Get current URL parameters
-  const currentParams = window.location.search;
+    // ✅ YOUR URLs
+    const YES_BASE_URL = "https://play-solitiare-2-f7dqg.ondigitalocean.app";
+    const NO_BASE_URL  = "https://www.google.com";
 
-  document.getElementById("yesBtn").addEventListener("click", function () {
-    document.getElementById("agePopup").style.display = "none";
+    // Get URL parameters (UTMs etc.)
+    const params = window.location.search || "";
 
-    setTimeout(() => {
-      window.location.href = YES_BASE_URL + currentParams;
-    }, 100);
-  });
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const popup = document.getElementById("agePopup");
 
-  document.getElementById("noBtn").addEventListener("click", function () {
-    window.location.href = NO_BASE_URL + currentParams;
+    if (!yesBtn || !noBtn || !popup) {
+      console.error("Age popup elements not found");
+      return;
+    }
+
+    // YES click
+    yesBtn.addEventListener("click", function () {
+      popup.style.display = "none";
+      setTimeout(() => {
+        window.location.href = YES_BASE_URL + params;
+      }, 100);
+    });
+
+    // NO click
+    noBtn.addEventListener("click", function () {
+      window.location.href = NO_BASE_URL + params;
+    });
+
   });
 </script>
+
 
 
     
